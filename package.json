@@ -1,0 +1,31 @@
+{
+  "name": "voting-dapp",
+  "version": "1.0.0",
+  "description": "Decentralized Voting System - Blockchain DApp",
+  "main": "index.js",
+  "scripts": {
+    "test": "truffle test",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate --network development",
+    "migrate-reset": "truffle migrate --network development --reset",
+    "ganache": "ganache-cli -m 'hormone yellow state glance pig armed second cuff silent base work'"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "smart-contract",
+    "voting",
+    "dapp",
+    "truffle",
+    "web3"
+  ],
+  "author": "Your Team",
+  "license": "MIT",
+  "dependencies": {
+    "web3": "^4.16.0"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^2.0.16",
+    "truffle": "^5.1.67"
+  }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Voting System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🗳️ Decentralized Voting System</h1>
+            <p class="subtitle">Blockchain-based transparent voting</p>
+        </header>
+
+        <!-- Connection Status -->
+        <div class="connection-status">
+            <div id="status" class="status-disconnected">
+                <span class="status-icon">⚠️</span>
+                <span id="statusText">Not Connected</span>
+            </div>
+            <button id="connectBtn" class="btn btn-connect">Connect MetaMask</button>
+        </div>
+
+        <!-- User Info -->
+        <div id="userInfo" class="user-info hidden">
+            <div class="info-box">
+                <p><strong>Account:</strong> <span id="account">-</span></p>
+                <p><strong>Balance:</strong> <span id="balance">-</span> ETH</p>
+                <p><strong>Network:</strong> <span id="network">-</span></p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Create Proposal Section -->
+            <section class="section create-proposal">
+                <h2>📝 Create New Proposal</h2>
+                <div class="form-group">
+                    <label for="proposalTitle">Title:</label>
+                    <input 
+                        type="text" 
+                        id="proposalTitle" 
+                        placeholder="Enter proposal title"
+                        maxlength="100"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="proposalDesc">Description:</label>
+                    <textarea 
+                        id="proposalDesc" 
+                        placeholder="Enter detailed description"
+                        rows="4"
+                        maxlength="500"
+                    ></textarea>
+                </div>
+                <button id="createBtn" class="btn btn-primary" disabled>Create Proposal</button>
+                <div id="createStatus" class="status-message"></div>
+            </section>
+
+            <!-- Proposals List Section -->
+            <section class="section proposals-list">
+                <h2>📋 Active Proposals</h2>
+                <div id="proposalsContainer" class="proposals-container">
+                    <p class="empty-state">Connect wallet to see proposals</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🔐 Secured by Ethereum Blockchain | Built with Truffle & Web3.js</p>
+        </footer>
+    </div>
+
+    <!-- Modal for Voting -->
+    <div id="voteModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Vote on Proposal</h2>
+            <p id="modalDesc" class="modal-description"></p>
+            
+            <div class="modal-stats">
+                <div class="stat-box">
+                    <p class="stat-label">Yes Votes</p>
+                    <p id="yesCount" class="stat-number">0</p>
+                </div>
+                <div class="stat-box">
+                    <p class="stat-label">No Votes</p>
+                    <p id="noCount" class="stat-number">0</p>
+                </div>
+            </div>
+
+            <div class="voting-buttons">
+                <button id="yesBtn" class="btn btn-yes">👍 Vote YES</button>
+                <button id="noBtn" class="btn btn-no">👎 Vote NO</button>
+            </div>
+            
+            <p id="votingStatus" class="voting-status"></p>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="spinner hidden">
+        <div class="spinner-circle"></div>
+        <p id="loadingText">Processing...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
